@@ -1,7 +1,7 @@
 import sqlite3
 import datetime
 import time
-conn=sqlite3.connect("fourth.db")
+conn=sqlite3.connect("DATA.db")
 c=conn.cursor()
 
 def create_table():               #creates table if not present
@@ -65,7 +65,7 @@ def main_func():                    #main function to execute other funtions
     related to that Item 
     will be Deleted)""")
     print(" 4. Delete all the DATA    (Press 4)")
-    print(" 5. Check Total Kharcha    (Press 5)")
+    print(" 5. Check Total Expenses    (Press 5)")
     print(" 6. EXIT                   (Press 6)")
     
     ch=int(input(' Choice: '))                   
