@@ -22,8 +22,8 @@ def dynamic_data_entry():         #takes data from user at run time
         
 def total_kharcha():    #to check total expenses
     c.execute("SELECT SUM(total_price) FROM hisaab")
-    sum_all=c.fetchone()[0] #PROBLEM HERE (DID NOT KNOW THE PROPER FUNCTIONING OF THIS)
-    print("\n Total Kharcha till now is : ",sum_all)
+    sum_all=c.fetchone()[0]
+    print("\n Total Expense till now is : ",sum_all)
     conn.commit()
         
         
@@ -37,7 +37,7 @@ def read_from_db():                #funtion to read from Database
         quantity=row[2]
         price=row[3]
         totalprice=row[4]
-        print("\n%-12s %-6s %-6d %-6d %-6d"%(date,item,quantity,price,totalprice))
+        print("\n%-12s %-12s %-16d %-24d %-6d"%(date,item,quantity,price,totalprice))
         
     
 def delete_all_db():                #delete funtion to clear whole data base
@@ -73,11 +73,12 @@ def main_func():                    #main function to execute other funtions
         create_table()
         entry()
     elif(ch==2):
+        print("\nDate         Item         Quantity         Price per Piece         Total Price")
         read_from_db()
     elif(ch==3):
         delete_some_db()
     elif(ch==4):
-        check=input("ALL THE DATA WILL BE ERASED\n DO YOU WISH TO PROCEED(Y/N): ")
+        check=input(" ALL THE DATA WILL BE ERASED\n DO YOU WISH TO PROCEED(Y/N): ")
         if(check=="Y" or check=="y"):
          delete_all_db()
         elif(check=="N" or check=="n"):
@@ -110,12 +111,13 @@ time.sleep(2)
 
 while True:                 #to stop termination of program without asking USER
     time.sleep(2)
+    print("""\n-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x\n""")
     print("\n What to do Now? Final Exit or Continue")
     print("\n 1. Continue       (Press 1)")
     print("\n 2. Final Exit     (Press 2)")
 
     ch2=int(input(" Choice: "))
-
+    print("""\n-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x\n""")
     if(ch2==1):
         main_func()
     elif(ch2==2):
