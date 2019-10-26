@@ -103,11 +103,11 @@ print("""      Application made by - ANUSHIV SHUKLA
       
       Application will Run after 5 secs""")
 
-time.sleep(5)        
+time.sleep(3)        
 
 main_func()
 
-time.sleep(2)
+time.sleep(1)
 
 while True:                 #to stop termination of program without asking USER
     time.sleep(2)
